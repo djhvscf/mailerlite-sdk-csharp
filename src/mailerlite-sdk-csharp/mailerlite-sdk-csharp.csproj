@@ -49,11 +49,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\ApiAbstract.cs" />
+    <Compile Include="Api\ApiBase.cs" />
     <Compile Include="Api\Campaigns.cs" />
     <Compile Include="Common\ApiConstants.cs" />
     <Compile Include="Common\ApiQueryOrder.cs" />
     <Compile Include="Common\CampignStatus.cs" />
+    <Compile Include="Common\CampignActions.cs" />
     <Compile Include="Common\CampignType.cs" />
     <Compile Include="Exceptions\MailerLiteException.cs" />
     <Compile Include="MailerLite.cs" />

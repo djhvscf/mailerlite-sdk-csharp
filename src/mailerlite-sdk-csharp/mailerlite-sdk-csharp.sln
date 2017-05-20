@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mailerlite-sdk-csharp", "mailerlite-sdk-csharp.csproj", "{A9CCE99A-EA10-4A41-B465-FF4AF505C707}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "..\Tests\Tests.csproj", "{5F16D3C7-9C12-4AE8-95EE-1EF3A27D6DD3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A9CCE99A-EA10-4A41-B465-FF4AF505C707}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9CCE99A-EA10-4A41-B465-FF4AF505C707}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9CCE99A-EA10-4A41-B465-FF4AF505C707}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F16D3C7-9C12-4AE8-95EE-1EF3A27D6DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F16D3C7-9C12-4AE8-95EE-1EF3A27D6DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F16D3C7-9C12-4AE8-95EE-1EF3A27D6DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F16D3C7-9C12-4AE8-95EE-1EF3A27D6DD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
