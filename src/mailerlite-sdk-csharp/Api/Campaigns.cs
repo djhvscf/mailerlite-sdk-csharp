@@ -65,7 +65,7 @@ namespace mailerlite_sdk_csharp.Api
                 language = language,
                 groups = groups,
                 abSettings = abSettings
-            }, "application/json").ResponseStream;
+            }, HttpContentTypes.ApplicationJson).ResponseStream;
         }
 
         public Stream Delete(int campaignId)
@@ -88,7 +88,7 @@ namespace mailerlite_sdk_csharp.Api
                 html = html,
                 plain = plain,
                 auto_inline = autoInline
-            }, "application/json").ResponseStream;
+            }, HttpContentTypes.ApplicationJson).ResponseStream;
         }
 
         public Stream Actions(int campaignId, CampaignActions action, int type, string followupSchedule, bool analytics,
@@ -102,7 +102,7 @@ namespace mailerlite_sdk_csharp.Api
                 timezone_id = timezoneId,
                 followup_date = followupDate.ToString("yyyy-MM-dd HH:mm:ss"),
                 followup_timezone_id = followupTimezoneId
-            }, "application/json").ResponseStream;
+            }, HttpContentTypes.ApplicationJson).ResponseStream;
         }
     }
 }

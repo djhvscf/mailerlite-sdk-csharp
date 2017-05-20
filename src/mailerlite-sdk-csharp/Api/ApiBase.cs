@@ -1,4 +1,5 @@
 ﻿using mailerlite_sdk_csharp.Common;
+using Utils;
 
 namespace mailerlite_sdk_csharp.Api
 {
@@ -6,7 +7,8 @@ namespace mailerlite_sdk_csharp.Api
     {
         protected string BaseUrl { get; } = $"{ApiConstants.BASE_URL}{ApiConstants.VERSION}/ ";
 
-        protected string AddQueryParams(string url, int? limit, int? offset, ApiQueryOrder? order)
+        protected string AddQueryParams(string url, int? limit, int? offset, ApiQueryOrder? order, 
+            string filters, CampaignSubscriberType? type)
         {
             if (limit.HasValue)
             {
@@ -37,7 +39,46 @@ namespace mailerlite_sdk_csharp.Api
                 }
             }
 
+            if (type.HasValue)
+            {
+                if (!url.Contains("?"))
+                {
+                    url = $"{url}?type={type}";
+                }
+                else
+                {
+                    url = $"{url}&type={type}";
+                }
+            }
+
+            if (filters.IsNotNullOrEmpty())
+            {
+                if (!url.Contains("?"))
+                {
+                    url = $"{url}?filters={filters}";
+                }
+                else
+                {
+                    url = $"{url}&filters={filters}";
+                }
+            }
+
             return url;
+        }
+
+        protected string AddQueryParams(string url, int? limit, int? offset, ApiQueryOrder? order)
+        {
+            return this.AddQueryParams(url, limit, offset, order, string.Empty, null);
+        }
+
+        protected string AddQueryParams(string url, int? limit, int? offset, string filters)
+        {
+            return this.AddQueryParams(url, limit, offset, null, filters, null);
+        }
+
+        protected string AddQueryParams(string url, int? limit, int? offset, string filters, CampaignSubscriberType? type)
+        {
+            return this.AddQueryParams(url, limit, offset, null, filters, type);
         }
     }
 }

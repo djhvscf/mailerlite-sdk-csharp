@@ -51,11 +51,13 @@
   <ItemGroup>
     <Compile Include="Api\ApiBase.cs" />
     <Compile Include="Api\Campaigns.cs" />
+    <Compile Include="Api\Groups.cs" />
     <Compile Include="Common\ApiConstants.cs" />
     <Compile Include="Common\ApiQueryOrder.cs" />
-    <Compile Include="Common\CampignStatus.cs" />
-    <Compile Include="Common\CampignActions.cs" />
-    <Compile Include="Common\CampignType.cs" />
+    <Compile Include="Common\CampaignSubscriberType.cs" />
+    <Compile Include="Common\CampaignStatus.cs" />
+    <Compile Include="Common\CampaignActions.cs" />
+    <Compile Include="Common\CampaignType.cs" />
     <Compile Include="Exceptions\MailerLiteException.cs" />
     <Compile Include="MailerLite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
