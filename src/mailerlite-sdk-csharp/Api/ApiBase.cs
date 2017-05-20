@@ -2,7 +2,7 @@
 
 namespace mailerlite_sdk_csharp.Api
 {
-    public class ApiAbstract
+    public class ApiBase
     {
         protected string BaseUrl { get; } = $"{ApiConstants.BASE_URL}{ApiConstants.VERSION}/ ";
 

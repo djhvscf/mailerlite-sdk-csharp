@@ -1,6 +1,7 @@
 ﻿using EasyHttp.Http;
 using mailerlite_sdk_csharp.Common;
 using mailerlite_sdk_csharp.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,7 +9,7 @@ using Utils;
 
 namespace mailerlite_sdk_csharp.Api
 {
-    public class Campaigns : ApiAbstract
+    public class Campaigns : ApiBase
     {
         private string Endpoint { get; }
         private string Url { get; }
@@ -70,6 +71,38 @@ namespace mailerlite_sdk_csharp.Api
         public Stream Delete(int campaignId)
         {
             return this.Http.Delete($"{Url}/{campaignId}").ResponseStream;
+        }
+
+        public Stream Content(int campaignId, string html, string plain, bool autoInline)
+        {
+            if(html.IsNullOrEmpty())
+            {
+                throw new MailerLiteException("HTML param cannot be empty");
+            }
+            if (plain.IsNullOrEmpty())
+            {
+                throw new MailerLiteException("HTML param cannot be empty");
+            }
+
+            return this.Http.Put($"{Url}/{campaignId}/content", new {
+                html = html,
+                plain = plain,
+                auto_inline = autoInline
+            }, "application/json").ResponseStream;
+        }
+
+        public Stream Actions(int campaignId, CampaignActions action, int type, string followupSchedule, bool analytics,
+            DateTime date, int timezoneId, DateTime followupDate, int followupTimezoneId)
+        {
+            return this.Http.Post($"{Url}/{campaignId}/actions/{action.ToString()}", new {
+                type = type,
+                followupSchedule = followupSchedule,
+                analytics = analytics ? 1 : 0,
+                date = date.ToString("yyyy-MM-dd HH:mm:ss"),
+                timezone_id = timezoneId,
+                followup_date = followupDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                followup_timezone_id = followupTimezoneId
+            }, "application/json").ResponseStream;
         }
     }
 }
