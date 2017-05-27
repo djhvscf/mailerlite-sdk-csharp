@@ -57,6 +57,7 @@
     <Compile Include="Common\CampaignSubscriberType.cs" />
     <Compile Include="Common\CampaignStatus.cs" />
     <Compile Include="Common\CampaignActions.cs" />
+    <Compile Include="Common\AddCampaignSubscriberType.cs" />
     <Compile Include="Common\CampaignType.cs" />
     <Compile Include="Exceptions\MailerLiteException.cs" />
     <Compile Include="MailerLite.cs" />
