@@ -1,5 +1,4 @@
 ﻿using mailerlite_sdk_csharp.Common;
-using Utils;
 
 namespace mailerlite_sdk_csharp.Api
 {
@@ -51,7 +50,7 @@ namespace mailerlite_sdk_csharp.Api
                 }
             }
 
-            if (filters.IsNotNullOrEmpty())
+            if (!string.IsNullOrWhiteSpace(filters))
             {
                 if (!url.Contains("?"))
                 {

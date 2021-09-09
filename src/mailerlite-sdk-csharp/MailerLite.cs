@@ -1,13 +1,6 @@
-﻿using EasyHttp.Http;
-using mailerlite_sdk_csharp.Api;
+﻿using mailerlite_sdk_csharp.Api;
 using mailerlite_sdk_csharp.Common;
 using mailerlite_sdk_csharp.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Utils;
 
 namespace mailerlite_sdk_csharp
 {
@@ -19,7 +12,7 @@ namespace mailerlite_sdk_csharp
 
         public MailerLite(string apiKey)
         {
-            if (apiKey.IsNullOrEmpty())
+            if (string.IsNullOrWhiteSpace(apiKey))
             {
                 throw new MailerLiteException("API key is not provided");
             }

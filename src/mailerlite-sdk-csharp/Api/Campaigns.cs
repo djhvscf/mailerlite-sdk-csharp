@@ -1,11 +1,9 @@
-﻿using EasyHttp.Http;
-using mailerlite_sdk_csharp.Common;
+﻿using mailerlite_sdk_csharp.Common;
 using mailerlite_sdk_csharp.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Utils;
 
 namespace mailerlite_sdk_csharp.Api
 {
@@ -39,7 +37,7 @@ namespace mailerlite_sdk_csharp.Api
         {
             if(type == CampaignType.regular)
             {
-                if(subject.IsNullOrEmpty())
+                if(string.IsNullOrWhiteSpace(subject))
                 {
                     throw new MailerLiteException("If the campaign type is regular the subject is required.");
                 }
@@ -47,13 +45,13 @@ namespace mailerlite_sdk_csharp.Api
 
             if(type == CampaignType.ab)
             {
-                if(abSettings.IsNull())
+                if(abSettings is null)
                 {
                     throw new MailerLiteException("If the campaign type is ab the ab_settings object is required.");
                 }
             }
 
-            if(groups.Count() == 0)
+            if(!groups.Any())
             {
                 throw new MailerLiteException("Groups ids are required");
             }
@@ -75,11 +73,11 @@ namespace mailerlite_sdk_csharp.Api
 
         public Stream Content(int campaignId, string html, string plain, bool autoInline)
         {
-            if(html.IsNullOrEmpty())
+            if(string.IsNullOrWhiteSpace(html))
             {
                 throw new MailerLiteException("HTML param cannot be empty");
             }
-            if (plain.IsNullOrEmpty())
+            if (string.IsNullOrWhiteSpace(plain))
             {
                 throw new MailerLiteException("HTML param cannot be empty");
             }

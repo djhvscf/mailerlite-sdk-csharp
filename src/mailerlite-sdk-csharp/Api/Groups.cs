@@ -1,13 +1,7 @@
-﻿using EasyHttp.Http;
-using mailerlite_sdk_csharp.Common;
+﻿using mailerlite_sdk_csharp.Common;
 using mailerlite_sdk_csharp.Exceptions;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Utils;
 
 namespace mailerlite_sdk_csharp.Api
 {
@@ -36,7 +30,7 @@ namespace mailerlite_sdk_csharp.Api
 
         public Stream Create(string name)
         {
-            if (name.IsNullOrEmpty())
+            if (string.IsNullOrWhiteSpace(name))
             {
                 throw new MailerLiteException("Group name cannot be empty");
             }
@@ -49,7 +43,7 @@ namespace mailerlite_sdk_csharp.Api
 
         public Stream Update(int groupId, string name)
         {
-            if (name.IsNullOrEmpty())
+            if (string.IsNullOrWhiteSpace(name))
             {
                 throw new MailerLiteException("Group name cannot be empty");
             }
